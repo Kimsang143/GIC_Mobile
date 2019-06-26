@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const faqRoutes = require('./App/routes/faq');
+const bannerRoutes = require('./App/routes/banner');
 
 mongoose.connect(
   "mongodb://gic_mobile:" +
@@ -36,6 +37,7 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use("/faqs", faqRoutes);
+app.use("/banners", bannerRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
