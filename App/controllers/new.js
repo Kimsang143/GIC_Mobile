@@ -27,13 +27,13 @@ exports.News_get_all = (req, res, next) => {
 };
 
 exports.News_create_New = (req, res, next) => {
-  const new = new New({
+  const news = new New({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,
     newImage: req.file.url,
     descrip: req.body.descrip
   });
-  new
+  news
     .save()
     .then(result => {
       console.log(result);
