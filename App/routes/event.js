@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
-const bannersController = require('../controllers/banner');
+const EventsController = require('../controllers/event');
 
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
@@ -21,14 +21,14 @@ const storage = cloudinaryStorage({
 
 const upload = multer({ storage: storage });
 
-router.get("/", bannersController.banners_get_all);
+router.get("/", EventsController.Events_get_all);
 
-router.post("/", upload.single('bannerImage'), bannersController.banners_create_banner);
+router.post("/", upload.single('eventImage'), EventsController.Events_create_Event);
 
-router.get("/:bannerId", bannersController.banners_get_banner);
+router.get("/:EventId", EventsController.Events_get_Event);
 
-router.patch("/:bannerId", bannersController.banners_update_banner);
+router.patch("/:EventId", upload.single('eventImage'),EventsController.Events_update_Event);
 
-router.delete("/:bannerId", bannersController.banners_delete);
+router.delete("/:EventId", EventsController.Events_delete);
 
 module.exports = router;

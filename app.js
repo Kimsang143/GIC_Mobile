@@ -6,11 +6,12 @@ const mongoose = require("mongoose");
 
 const faqRoutes = require('./App/routes/faq');
 const bannerRoutes = require('./App/routes/banner');
+const eventRoutes = require('./App/routes/event');
 
 mongoose.connect(
-  "mongodb://gic_mobile:" +
+  "mongodb://lovesong:" +
     "Cocoopark" +
-    "@cluster0-shard-00-00-zzy0w.mongodb.net:27017,cluster0-shard-00-01-zzy0w.mongodb.net:27017,cluster0-shard-00-02-zzy0w.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
+    "@cluster0-shard-00-00-dp6l4.mongodb.net:27017,cluster0-shard-00-01-dp6l4.mongodb.net:27017,cluster0-shard-00-02-dp6l4.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority",
   {
     useMongoClient: true
   }
@@ -38,6 +39,7 @@ app.use((req, res, next) => {
 // Routes which should handle requests
 app.use("/faqs", faqRoutes);
 app.use("/banners", bannerRoutes);
+app.use("/events", eventRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");
