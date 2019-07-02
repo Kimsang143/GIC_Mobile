@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const faqRoutes = require('./App/routes/faq');
 const bannerRoutes = require('./App/routes/banner');
 const eventRoutes = require('./App/routes/event');
+const newRoutes = require('./App/routes/new');
 
 mongoose.connect(
   "mongodb://lovesong:" +
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
 app.use("/faqs", faqRoutes);
 app.use("/banners", bannerRoutes);
 app.use("/events", eventRoutes);
+app.use("/news", newRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found");

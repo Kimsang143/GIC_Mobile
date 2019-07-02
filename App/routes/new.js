@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require('multer');
-const EventsController = require('../controllers/event');
+const NewsController = require('../controllers/new');
 
 const cloudinary = require("cloudinary");
 const cloudinaryStorage = require("multer-storage-cloudinary");
@@ -14,21 +14,21 @@ cloudinary.config({
 
 const storage = cloudinaryStorage({
     cloudinary: cloudinary,
-    folder: "ios-events",
+    folder: "ios-news",
     allowedFormats: ["jpg", "png", "mp3","audio"],
     transformation: [{ width: 332, height: 499, crop: 'limit' }]
 });
 
 const upload = multer({ storage: storage });
 
-router.get("/", EventsController.Events_get_all);
+router.get("/", NewsController.News_get_all);
 
-router.post("/", upload.single('eventImage'), EventsController.Events_create_Event);
+router.post("/", upload.single('newImage'), NewsController.News_create_New);
 
-router.get("/:EventId", EventsController.Events_get_Event);
+router.get("/:NewId", NewsController.News_get_New);
 
-router.patch("/:EventId", upload.single('eventImage'),EventsController.Events_update_Event);
+router.patch("/:NewId", upload.single('newImage'),NewsController.News_update_New);
 
-router.delete("/:EventId", EventsController.Events_delete);
+router.delete("/:NewId", NewsController.News_delete);
 
 module.exports = router;
