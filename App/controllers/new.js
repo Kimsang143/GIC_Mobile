@@ -29,9 +29,12 @@ exports.News_get_all = (req, res, next) => {
 exports.News_create_New = (req, res, next) => {
   const news = new New({
     _id: new mongoose.Types.ObjectId(),
-    name: req.body.name,
-    newImage: req.file.url,
-    descrip: req.body.descrip
+    title: req.body.title,
+    image: req.file.url,
+    content: req.body.content,
+    description: req.body.description,
+    shared_url: req.body.shared_url,
+    release_date: req.body.release_date,
   });
   news
     .save()
