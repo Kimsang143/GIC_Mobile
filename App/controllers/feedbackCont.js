@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Feedback = require("../models/feedback");
+const Feedback = require("../models/feedbackMod");
 
 exports.Feedback_get_all = (req, res, next) => {
   Feedback.find()
