@@ -23,8 +23,8 @@ mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));
 app.use('/uploads', express.static('uploads'));
-app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
