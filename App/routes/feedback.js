@@ -23,6 +23,6 @@ const feedbackController = require('../controllers/feedback');
 
 router.get("/", feedbackController.getAllFeedbacks);
 
-router.post("/", feedbackController.createFeedback);
+router.post("/", feedbackController.validate('createFeedback'), feedbackController.createFeedback);
 
 module.exports = router;
