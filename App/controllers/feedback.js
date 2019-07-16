@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Feedback = require("../models/feedbackMod");
+const Feedback = require("../models/feedback");
 
-exports.Feedback_get_all = (req, res, next) => {
+exports.getAllFeedbacks = (req, res, next) => {
   Feedback.find()
     .select()
     .exec()
@@ -26,7 +26,7 @@ exports.Feedback_get_all = (req, res, next) => {
     });
 };
 
-exports.Feedback_create_one = (req, res, next) => {
+exports.createFeedback = (req, res, next) => {
   const feedback = new Feedback({
     _id: new mongoose.Types.ObjectId(),
     name: req.body.name,

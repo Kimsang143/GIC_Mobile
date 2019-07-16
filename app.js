@@ -8,7 +8,7 @@ const faqRoutes = require('./App/routes/faq');
 const bannerRoutes = require('./App/routes/banner');
 const eventRoutes = require('./App/routes/event');
 const newRoutes = require('./App/routes/new');
-const feedbacksRoutes = require('./App/routes/feedbackRou');
+const feedbacksRoutes = require('./App/routes/feedback');
 
 mongoose.connect(
   "mongodb://lovesong:" +
