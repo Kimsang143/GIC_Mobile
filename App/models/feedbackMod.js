@@ -3,7 +3,14 @@ const validator = require('validator');
 
 const feedbackSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
-    name: { type: String, required: true },
+    name: {
+      type: String,
+      validate: {
+        validator: !validator.isEmpty,
+        message: 'Please fill a valid name',
+        isAsync: false
+      }
+    },
     email: {
         type: String,
         validate: {
@@ -12,7 +19,14 @@ const feedbackSchema = mongoose.Schema({
           isAsync: false
         }
      },
-    descrip: { type: String, required: true }
+    descrip: {
+      type: String,
+      validate: {
+        validator: !validator.isEmpty,
+        message: 'Please fill a valid description',
+        isAsync: false
+      }
+    }
 	},
     {
   	timestamps: true
