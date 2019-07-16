@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
-const expressValidator = require('express-validator');
+// const expressValidator = require('express-validator');
 const mongoose = require("mongoose");
 
 const faqRoutes = require('./App/routes/faq');
@@ -24,7 +24,8 @@ mongoose.Promise = global.Promise;
 app.use(morgan("dev"));
 app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(expressValidator());
+// app.use(expressValidator());
+app.use(express.json());
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
