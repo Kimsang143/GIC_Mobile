@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Feedback = require("../models/feedback");
-const { body } = require('express-validator/check');
-const { validationResult } = require('express-validator/check');
+const { body } = require('express-validator');
+const { validationResult } = require('express-validator');
 
 exports.validate = (method) => {
   switch (method) {
